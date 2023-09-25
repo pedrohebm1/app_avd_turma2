@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource bd_avd_turma2 {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Events {
+  id String @id @default(uuid())
+  event_name String
+  event_place String
+  event_city String
+  month_year_event String
+  day_of_week String
+  event_show String
+
+  @@map("events")
+}
